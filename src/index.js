@@ -17,22 +17,25 @@ function getDrinkList(){
         // console.log(element.idDrink)
          ul.innerHTML += `<li><a href="#" data-id="${element.idDrink}" class="drinkName">${element.strDrink}</a></li>`
     })
-    const linkArry = document.querySelectorAll(".drinkName")
-    //linkArry.forEach((e)=> console.log(e.dataset.id))
-    // console.log($(this).data("id"))
-    linkArry.forEach(element => element.addEventListener("click", ()=> {
-      console.log(element.dataset.id)
-      fetch(url + `/lookup.php?i=${element.dataset.id}`)
-      .then((resp)=>resp.json())
-      .then((data)=> {
-         console.log(data.drinks[0].strDrink)
-         console.log(data.drinks[0].strDrinkThumb)
-         console.log(data.drinks[0].strInstructions)
-
-      })
-   }
-   ))
+    addLinksToList()
 })
 }
 
-
+function addLinksToList(){
+   const linkArry = document.querySelectorAll(".drinkName")
+   //linkArry.forEach((e)=> console.log(e.dataset.id))
+   // console.log($(this).data("id"))
+   linkArry.forEach(element => element.addEventListener("click", ()=> {
+     console.log(element.dataset.id)
+     fetch(url + `/lookup.php?i=${element.dataset.id}`)
+     .then((resp)=>resp.json())
+     .then((data)=> {
+        console.log(data.drinks[0].strDrink)
+        console.log(data.drinks[0].strIngredient1)
+        console.log(data.drinks[0].strIngredient15)
+        console.log(data.drinks[0].strInstructions)
+        console.log(data.drinks[0].strDrinkThumb)
+     })
+  }
+  ))
+}
