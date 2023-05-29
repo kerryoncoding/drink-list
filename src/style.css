@@ -30,3 +30,8 @@ a {
 a:hover {
    color:#e95d35;
 }
+
+img {
+   border-radius: 10px;
+   border: solid 2px #272e6e;
+}
