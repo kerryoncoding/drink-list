@@ -9,10 +9,17 @@ let url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholi
 
 function getDrinkList(){
    //make the api fetch GET request
+   const ul = document.getElementById("drinkList")
    fetch(url)
    .then((resp)=>resp.json())
    .then((json)=> {
-      (json.drinks).forEach(element => console.log(element.strDrink))
+      (json.drinks).forEach(element => {
+         console.log(element.strDrink)
+         const li = document.createElement("li")
+         li.className = "drinkName"
+         li.append(element.strDrink)
+         ul.append(li)
+      })
    }
    )
    displayDrinkList()
