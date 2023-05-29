@@ -4,6 +4,10 @@ body {
    color:#272e6e
 }
 
+.nav {
+   text-align: center;
+}
+
 button {
    padding: 10px 20px 10px 20px;
    border-radius: 5px;
@@ -11,6 +15,10 @@ button {
    background-color: #ffc55c;
    color:#e95d35;
    font-size: 20px;    
+}
+
+hr {
+   margin-top: 25px;
 }
 
 ul {
@@ -34,4 +42,5 @@ a:hover {
 img {
    border-radius: 10px;
    border: solid 2px #272e6e;
+   width: 300px;
 }
