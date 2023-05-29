@@ -51,9 +51,9 @@ function getDrinkDetails(element){
          <img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          <div id="glass"></div>
          `
+
          let image = document.querySelector('img')
          let glassType = document.getElementById("glass")
-
          image.addEventListener("mouseover", ()=> {
             glassType.innerHTML = 
             `<h3>Serve in a ${data.drinks[0].strGlass}.</h3>`
@@ -61,8 +61,7 @@ function getDrinkDetails(element){
          let image2 = document.querySelector('img')
          image2.addEventListener("mouseout", ()=> {
             glassType.innerHTML = ``
-         })
-   
+         })   
             //   console.log(data.drinks[0].strIngredient1)
             //   console.log(data.drinks[0].strIngredient15)
       })
@@ -71,7 +70,8 @@ function getDrinkDetails(element){
 }
 
 function getIngrdientsList(data){
-   let ingredientArr = [data.drinks[0].strIngredient1, data.drinks[0].strIngredient2, data.drinks[0].strIngredient3, data.drinks[0].strIngredient4, data.drinks[0].strIngredient5, data.drinks[0].strIngredient6, data.drinks[0].strIngredient7, data.drinks[0].strIngredient8, data.drinks[0].strIngredient9, data.drinks[0].strIngredient10, data.drinks[0].strIngredient11, data.drinks[0].strIngredient12, data.drinks[0].strIngredient13, data.drinks[0].strIngredient14, data.drinks[0].strIngredient15]
+   let foo = data.drinks[0]
+   let ingredientArr = [foo.strIngredient1, foo.strIngredient2, foo.strIngredient3, foo.strIngredient4, foo.strIngredient5, foo.strIngredient6, foo.strIngredient7, foo.strIngredient8, foo.strIngredient9, foo.strIngredient10, foo.strIngredient11, foo.strIngredient12, foo.strIngredient13, foo.strIngredient14, foo.strIngredient15]
  //  console.log(ingredientArr)
    let ingredientShortArr = []
    ingredientArr.forEach((element)=> {

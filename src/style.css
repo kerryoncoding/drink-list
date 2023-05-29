@@ -45,7 +45,12 @@ a:hover {
 img {
    display: block;
    margin: 0 auto;
+   margin-top: 25px;
    border-radius: 10px;
    border: solid 2px #272e6e;
    width: 300px;
+}
+
+#glass{
+   text-align: center;
 }
