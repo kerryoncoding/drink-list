@@ -11,7 +11,10 @@ function getDrinkList(){
    //make the api fetch GET request
    fetch(url)
    .then((resp)=>resp.json())
-   .then((json)=>console.log(json))
+   .then((json)=> {
+      (json.drinks).forEach(element => console.log(element.strDrink))
+   }
+   )
    displayDrinkList()
 }
 
