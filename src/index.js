@@ -35,22 +35,41 @@ function getDrinkDetails(element){
    element.addEventListener("click", () => {
    ul = document.getElementById("drinkList")
    ul.innerHTML = ""
-
    console.log(element)
    console.log(element.dataset.id)
    fetch(url + `/lookup.php?i=${element.dataset.id}`)
       .then((resp)=>resp.json())
       .then((data)=> {
+         let ingredinets = getIngrdientsList(data)
 
          ul.innerHTML = `
          <h2>Drink: ${data.drinks[0].strDrink}</h2>
+         <li><strong>Ingredients:</strong></li>
+         <li>${data.drinks[0].strIngredient1}</li>
+         <li>${data.drinks[0].strIngredient2}</li>
+         <li>${data.drinks[0].strIngredient3}</li>
+         <li>${data.drinks[0].strIngredient4}</li>
+         <li>${data.drinks[0].strIngredient5}</li>
+         <li>${data.drinks[0].strIngredient6}</li>
 
-         <p>Instructions: ${data.drinks[0].strInstructions}</p>
+         <p><strong>Instructions:</strong> ${data.drinks[0].strInstructions}</p>
          <p><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          `
    
-              console.log(data.drinks[0].strIngredient1)
-              console.log(data.drinks[0].strIngredient15)
+            //   console.log(data.drinks[0].strIngredient1)
+            //   console.log(data.drinks[0].strIngredient15)
       })
    })
+}
+
+function getIngrdientsList(data){
+   let ingredientArr = [data.drinks[0].strIngredient1, data.drinks[0].strIngredient2, data.drinks[0].strIngredient3, data.drinks[0].strIngredient4, data.drinks[0].strIngredient5, data.drinks[0].strIngredient6, data.drinks[0].strIngredient7, data.drinks[0].strIngredient8, data.drinks[0].strIngredient9, data.drinks[0].strIngredient10, data.drinks[0].strIngredient11, data.drinks[0].strIngredient12, data.drinks[0].strIngredient13, data.drinks[0].strIngredient14, data.drinks[0].strIngredient15]
+   console.log(ingredientArr)
+   let ingredientShortArr = []
+   ingredientArr.forEach((element)=> {
+      if (element != null){
+         ingredientShortArr.push(element)
+      }
+   })
+   console.log(ingredientShortArr)
 }
