@@ -6,13 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
    getDrinkList()
 })
 
-let url = "https://www.thecocktaildb.com/api/json/v1/1"
+let url = "https://www.thecocktaildb.com/api/json/v1/1/"
+
+
 
 function getDrinkList(){
    //make the api fetch GET request
    const ul = document.getElementById("drinkList")
    ul.innerHTML = ""
-   fetch(url + `/filter.php?a=Non_Alcoholic`)
+   const div = document.getElementById("singleDrink")
+   div.innerHTML = ""
+   fetch(url + `filter.php?a=Non_Alcoholic`)
    .then((resp)=>resp.json())
    .then((json)=> {
       (json.drinks).forEach(element => {
@@ -34,15 +38,16 @@ function addLinksToList(){
 function getDrinkDetails(element){
    //another click event listener
    element.addEventListener("click", () => {
-   ul = document.getElementById("drinkList")
-   ul.innerHTML = ""
-   console.log(element)
-   console.log(element.dataset.id)
-   fetch(url + `/lookup.php?i=${element.dataset.id}`)
+      const ul = document.getElementById("drinkList")
+      ul.innerHTML = ""
+      const div = document.getElementById("singleDrink")
+      console.log(element)
+      console.log(element.dataset.id)
+   fetch(url + `lookup.php?i=${element.dataset.id}`)
       .then((resp)=>resp.json())
       .then((data)=> {
          let ingredients = getIngrdientsList(data)
-         ul.innerHTML = `
+         div.innerHTML = `
          <h2>${data.drinks[0].strDrink}</h2>
          <p><strong>Ingredients: </strong></p>
          <p>${ingredients}</p>
