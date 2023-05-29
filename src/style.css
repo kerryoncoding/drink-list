@@ -1,7 +1,10 @@
 
 body {
+   display: block;
+   margin: 0 auto;
    background-color: #ffffc3;
-   color:#272e6e
+   color:#272e6e;
+   width: 600px
 }
 
 .nav {
@@ -40,6 +43,8 @@ a:hover {
 }
 
 img {
+   display: block;
+   margin: 0 auto;
    border-radius: 10px;
    border: solid 2px #272e6e;
    width: 300px;

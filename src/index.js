@@ -48,7 +48,7 @@ function getDrinkDetails(element){
          <p>${ingredients}</p>
          <p><strong>Instructions: </strong></p>
          <p> ${data.drinks[0].strInstructions}</p>
-         <p><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
+         <img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          `
          let image = document.querySelector('img')
          image.addEventListener("mouseover", ()=> alert(`Serve in a ${data.drinks[0].strGlass}`))
