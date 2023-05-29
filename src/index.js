@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
    let showDrinks = document.getElementById("allDrinksBtn")
-   showDrinks.addEventListener("click", () => {console.log("I have been clicked")})
+   showDrinks.addEventListener("click", () => {getDrinkList()})
    getDrinkList()
 })
 
@@ -10,6 +10,7 @@ let url = "https://www.thecocktaildb.com/api/json/v1/1"
 function getDrinkList(){
    //make the api fetch GET request
    const ul = document.getElementById("drinkList")
+   ul.innerHTML = ""
    fetch(url + `/filter.php?a=Non_Alcoholic`)
    .then((resp)=>resp.json())
    .then((json)=> {
@@ -48,11 +49,8 @@ function getDrinkDetails(element){
          <p><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          `
    
-           //   console.log(data.drinks[0].strDrink)
               console.log(data.drinks[0].strIngredient1)
               console.log(data.drinks[0].strIngredient15)
-              console.log(data.drinks[0].strInstructions)
-              console.log(data.drinks[0].strDrinkThumb)
       })
    })
 }
