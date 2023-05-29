@@ -48,13 +48,19 @@ function getDrinkDetails(element){
          <p>${ingredients}</p>
          <p><strong>Instructions: </strong></p>
          <p> ${data.drinks[0].strInstructions}</p>
-         <div id="imageBlock"><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}"></div>
+         <img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
+         <div id="glass"></div>
          `
          let image = document.querySelector('img')
+         let glassType = document.getElementById("glass")
+
          image.addEventListener("mouseover", ()=> {
-            document.getElementById("imageBlock").innerHTML = 
-            `<img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
-            <p>Serve in a ${data.drinks[0].strGlass}.</p>`
+            glassType.innerHTML = 
+            `<h3>Serve in a ${data.drinks[0].strGlass}.</h3>`
+         })
+         let image2 = document.querySelector('img')
+         image2.addEventListener("mouseout", ()=> {
+            glassType.innerHTML = ``
          })
    
             //   console.log(data.drinks[0].strIngredient1)
