@@ -48,10 +48,14 @@ function getDrinkDetails(element){
          <p>${ingredients}</p>
          <p><strong>Instructions: </strong></p>
          <p> ${data.drinks[0].strInstructions}</p>
-         <img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
+         <div id="imageBlock"><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}"></div>
          `
          let image = document.querySelector('img')
-         image.addEventListener("mouseover", ()=> alert(`Serve in a ${data.drinks[0].strGlass}`))
+         image.addEventListener("mouseover", ()=> {
+            document.getElementById("imageBlock").innerHTML = 
+            `<img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
+            <p>Serve in a ${data.drinks[0].strGlass}.</p>`
+         })
    
             //   console.log(data.drinks[0].strIngredient1)
             //   console.log(data.drinks[0].strIngredient15)
