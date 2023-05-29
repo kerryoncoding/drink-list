@@ -21,21 +21,45 @@ function getDrinkList(){
 })
 }
 
+// function addLinksToList(){
+//    const linkArry = document.querySelectorAll(".drinkName")
+//    //linkArry.forEach((e)=> console.log(e.dataset.id))
+//    // console.log($(this).data("id"))
+//    linkArry.forEach(element => element.addEventListener("click", ()=> {
+//      console.log(element.dataset.id)
+//      fetch(url + `/lookup.php?i=${element.dataset.id}`)
+//      .then((resp)=>resp.json())
+//      .then((data)=> {
+//         console.log(data.drinks[0].strDrink)
+//         console.log(data.drinks[0].strIngredient1)
+//         console.log(data.drinks[0].strIngredient15)
+//         console.log(data.drinks[0].strInstructions)
+//         console.log(data.drinks[0].strDrinkThumb)
+//      })
+//   }
+//   ))
+// }
+
 function addLinksToList(){
    const linkArry = document.querySelectorAll(".drinkName")
    //linkArry.forEach((e)=> console.log(e.dataset.id))
    // console.log($(this).data("id"))
-   linkArry.forEach(element => element.addEventListener("click", ()=> {
-     console.log(element.dataset.id)
-     fetch(url + `/lookup.php?i=${element.dataset.id}`)
-     .then((resp)=>resp.json())
-     .then((data)=> {
-        console.log(data.drinks[0].strDrink)
-        console.log(data.drinks[0].strIngredient1)
-        console.log(data.drinks[0].strIngredient15)
-        console.log(data.drinks[0].strInstructions)
-        console.log(data.drinks[0].strDrinkThumb)
-     })
+   linkArry.forEach(element => getDrinkDetails(element))
   }
-  ))
+
+
+function getDrinkDetails(element){
+   element.addEventListener("click", () => {
+   console.log(element)
+   console.log(element.dataset.id)
+   fetch(url + `/lookup.php?i=${element.dataset.id}`)
+      .then((resp)=>resp.json())
+      .then((data)=> {
+              console.log(data.drinks[0].strDrink)
+              console.log(data.drinks[0].strIngredient1)
+              console.log(data.drinks[0].strIngredient15)
+              console.log(data.drinks[0].strInstructions)
+              console.log(data.drinks[0].strDrinkThumb)
+      })
+   })
 }
