@@ -15,14 +15,8 @@ function getDrinkList(){
    .then((json)=> {
       (json.drinks).forEach(element => {
          console.log(element.strDrink)
-         ul.innerHTML += `<li>${element.strDrink}</li>`
-         // const li = document.createElement("li")
-         // li.className = "drinkName"
-         // li.append(element.strDrink)
-         // ul.append(li)
-         // console.log(document.getElementById("drinkName"))
-         //.addEventListener("click", ()=> console.log('drink has been selected'))
-      })
+         ul.innerHTML += `<li><a href="# id="drinkName">${element.strDrink}</a></li>`
+    })
    }
    )
    displayDrinkList()
