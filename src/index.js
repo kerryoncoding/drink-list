@@ -15,7 +15,7 @@ function getDrinkList(){
    .then((json)=> {
       (json.drinks).forEach(element => {
          console.log(element.strDrink)
-         ul.innerHTML += `<li><a href="# id="drinkName">${element.strDrink}</a></li>`
+         ul.innerHTML += `<li><a href="#" className="drinkName">${element.strDrink}</a></li>`
     })
    }
    )

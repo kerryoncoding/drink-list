@@ -19,6 +19,14 @@ ul {
 
 li {
    padding-top: 10px;
-   color:#272e6e;
    font-size: 18px
+}
+
+a {
+   text-decoration: none;
+   color:#272e6e;
+}
+
+a:hover {
+   color:#e95d35;
 }
