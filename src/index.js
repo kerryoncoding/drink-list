@@ -1,6 +1,7 @@
-
+//first event listener - DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
    let showDrinks = document.getElementById("allDrinksBtn")
+   //second event listener - CLICK
    showDrinks.addEventListener("click", () => {getDrinkList()})
    getDrinkList()
 })
@@ -30,8 +31,8 @@ function addLinksToList(){
    linkArry.forEach(element => getDrinkDetails(element))
   }
 
-
 function getDrinkDetails(element){
+   //another click event listener
    element.addEventListener("click", () => {
    ul = document.getElementById("drinkList")
    ul.innerHTML = ""
@@ -49,10 +50,13 @@ function getDrinkDetails(element){
          <p> ${data.drinks[0].strInstructions}</p>
          <p><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          `
+         let image = document.querySelector('img')
+         image.addEventListener("mouseover", ()=> alert(`Serve in a ${data.drinks[0].strGlass}`))
    
             //   console.log(data.drinks[0].strIngredient1)
             //   console.log(data.drinks[0].strIngredient15)
       })
+      
    })
 }
 
