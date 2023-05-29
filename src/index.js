@@ -41,13 +41,12 @@ function getDrinkDetails(element){
       .then((resp)=>resp.json())
       .then((data)=> {
          let ingredients = getIngrdientsList(data)
-         console.log(ingredients)
-
          ul.innerHTML = `
          <h2>${data.drinks[0].strDrink}</h2>
-         <h3><strong>Ingredients:</strong></h3>
-         
-         <p><strong>Instructions:</strong> ${data.drinks[0].strInstructions}</p>
+         <p><strong>Ingredients: </strong></p>
+         <p>${ingredients}</p>
+         <p><strong>Instructions: </strong></p>
+         <p> ${data.drinks[0].strInstructions}</p>
          <p><img class="picture" src="${data.drinks[0].strDrinkThumb}" alt="image of ${data.drinks[0].strDrink}">
          `
    
