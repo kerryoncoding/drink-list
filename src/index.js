@@ -40,7 +40,7 @@ function getDrinkDetails(element){
       fetch(url + `lookup.php?i=${element.dataset.id}`)
       .then((resp)=>resp.json())
       .then((data)=> {
-         const ingredients = getIngrdientsList(data)
+         const ingredients = getIngrdients(data)
          div.innerHTML = `
          <h2>${data.drinks[0].strDrink}</h2>
          <p><strong>Ingredients: </strong></p>
@@ -65,9 +65,9 @@ function getDrinkDetails(element){
 }
 
 
-function getIngrdientsList(data){
-   let foo = data.drinks[0]
-   let ingredientArr = [foo.strIngredient1, foo.strIngredient2, foo.strIngredient3, foo.strIngredient4, foo.strIngredient5, foo.strIngredient6, foo.strIngredient7, foo.strIngredient8, foo.strIngredient9, foo.strIngredient10, foo.strIngredient11, foo.strIngredient12, foo.strIngredient13, foo.strIngredient14, foo.strIngredient15]
+function getIngrdients(data){
+   let info = data.drinks[0]
+   let ingredientArr = [info.strIngredient1, info.strIngredient2, info.strIngredient3, info.strIngredient4, info.strIngredient5, info.strIngredient6, info.strIngredient7, info.strIngredient8, info.strIngredient9, info.strIngredient10, info.strIngredient11, info.strIngredient12, info.strIngredient13, info.strIngredient14, info.strIngredient15]
    let ingredientShortArr = []
    ingredientArr.forEach((element)=> {
       if (element != null){
