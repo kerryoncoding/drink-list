@@ -32,7 +32,6 @@ function addLinksToList(){
 
 
 function getDrinkDetails(element){
-
    element.addEventListener("click", () => {
       const ul = document.getElementById("drinkList")
       ul.innerHTML = ""
